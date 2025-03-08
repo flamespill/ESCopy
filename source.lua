@@ -5,7 +5,7 @@ local RobloxGui = CoreGui:WaitForChild("RobloxGui")
 local ESCMenu = RobloxGui:WaitForChild("SettingsClippingShield")
 local ESCMenu_PlayersList = ESCMenu:WaitForChild("SettingsShield"):WaitForChild("MenuContainer"):WaitForChild("PageViewClipper"):WaitForChild("PageView"):WaitForChild("PageViewInnerFrame"):WaitForChild("Players")
 
-local function AddCopyClipBoardButton(Player)
+local function AddCopyClipboardButton(Player)
 	local RightSideButtons = Player:WaitForChild("RightSideButtons")
 	
 	if RightSideButtons:FindFirstChild("CopyClipboard") then return end
@@ -26,12 +26,12 @@ end
 
 for i,Player in pairs(ESCMenu_PlayersList:GetChildren()) do
 	if Player:IsA("ImageLabel") then
-		AddCopyClipBoardButton(Player)
+		AddCopyClipboardButton(Player)
 	end
 end
 
 Players.PlayerAdded:Connect(function(Player)
-	AddCopyClipBoardButton(ESCMenu_PlayersList:WaitForChild("PlayerLabel"..Player.Name))
+	AddCopyClipboardButton(ESCMenu_PlayersList:WaitForChild("PlayerLabel"..Player.Name))
 end)
 
 Players.PlayerRemoving:Connect(function(Player)
